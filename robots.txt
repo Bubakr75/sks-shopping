@@ -1,0 +1,3 @@
+﻿User-agent: *
+Allow: /
+Sitemap: https://bubakr75.github.io/sks-shopping/sitemap.xml
