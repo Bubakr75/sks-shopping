@@ -1,372 +1,205 @@
 ﻿<!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SKS SHOPPING - L'élégance livrée à votre porte. Boutique multi-niches premium." />
   <title>SKS SHOPPING - L'élégance livrée à votre porte</title>
-  <meta name="description" content="SKS SHOPPING - boutique multi-produits au style luxe vert émeraude." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#f4f7f4;
-      --card:#ffffff;
-      --text:#0b1d16;
-      --muted:#5f6f68;
-      --gold:#d4af37;
-      --green:#0f6a4f;
-      --green2:#0b4e3b;
-      --line:#dfe8e2;
-      --shadow:0 12px 30px rgba(10,30,20,.08);
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Inter,Arial,sans-serif;background:linear-gradient(180deg,#edf7f1 0%,#f7f5ef 40%,#fff 100%);color:var(--text);line-height:1.6}
-    a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
-    .topbar{background:#07110d;color:#f6f4ee;text-align:center;padding:10px 16px;font-size:14px;letter-spacing:.5px}
-    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(15,106,79,.08)}
-    .nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:18px 20px;gap:20px}
-    .logo{font-family:"Playfair Display",serif;font-size:32px;font-weight:900;color:var(--gold);letter-spacing:1px}
-    .links{display:flex;gap:18px;flex-wrap:wrap}
-    .links a{font-size:14px;text-transform:uppercase;font-weight:600;color:var(--green2)}
-    .links a:hover{color:var(--gold)}
-    .container{max-width:1200px;margin:auto;padding:0 20px}
-    .hero{min-height:78vh;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:30px;padding:50px 0}
-    .hero h1{font-family:"Playfair Display",serif;font-size:72px;line-height:1.02;color:var(--green2);margin-bottom:18px}
-    .hero p{font-size:20px;color:var(--muted);margin-bottom:28px;max-width:680px}
-    .hero-card{background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
-    .hero-card img{height:560px;width:100%;object-fit:cover}
-    .actions{display:flex;gap:14px;flex-wrap:wrap}
-    .btn{border:none;border-radius:999px;padding:14px 22px;font-weight:700;cursor:pointer}
-    .btn-gold{background:var(--gold);color:#111}
-    .btn-green{background:var(--green);color:#fff}
-    .btn-outline{background:#fff;border:1px solid var(--green);color:var(--green)}
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:22px 0 54px}
-    .stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow);text-align:center}
-    .stat strong{display:block;font-size:22px;color:var(--green2)}
-    .section{padding:20px 0 60px}
-    .section h2{font-family:"Playfair Display",serif;font-size:42px;margin-bottom:10px;color:var(--green2)}
-    .section p.lead{color:var(--muted);margin-bottom:28px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-    .cat,.card{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
-    .cat img{height:210px;width:100%;object-fit:cover}
-    .cat .body,.card .body{padding:18px}
-    .cat h3,.card h3{font-size:20px;margin-bottom:6px}
-    .muted{color:var(--muted)}
-    .price{font-weight:800;color:var(--green2);font-size:20px}
-    .old{color:#8d8d8d;text-decoration:line-through;margin-left:8px;font-weight:500}
-    .badge{display:inline-block;background:#edf7f1;color:var(--green);border:1px solid #cfe5da;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;margin-bottom:10px}
-    .card img{height:240px;width:100%;object-fit:cover}
-    .card .actions{margin-top:14px}
-    .toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}
-    input,select{padding:12px 14px;border:1px solid var(--line);border-radius:12px;font:inherit;background:#fff}
-    .shop{display:grid;grid-template-columns:280px 1fr;gap:24px}
-    .panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow)}
-    .panel h3{margin-bottom:14px;color:var(--green2)}
-    .panel label{display:block;margin:8px 0;color:#33443c}
-    .cart{position:fixed;right:20px;bottom:20px;width:340px;max-width:calc(100vw - 40px);background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 20px 40px rgba(0,0,0,.16);padding:18px;z-index:30}
-    .cart h3{margin-bottom:10px}
-    .cart-list{max-height:280px;overflow:auto;margin:10px 0}
-    .cart-item{display:grid;grid-template-columns:56px 1fr auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #edf1ee}
-    .cart-item img{width:56px;height:56px;object-fit:cover;border-radius:12px}
-    .cart-total{display:flex;justify-content:space-between;font-weight:800;font-size:18px;margin:14px 0}
-    .tiny{font-size:13px;color:var(--muted)}
-    footer{margin-top:60px;background:#07110d;color:#f6f4ee}
-    .footer{max-width:1200px;margin:auto;padding:40px 20px}
-    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px}
-    .footer h4{color:var(--gold);margin-bottom:12px}
-    .footer a{color:#d4e1db}
-    .footer a:hover{color:var(--gold)}
-    .copy{border-top:1px solid rgba(255,255,255,.08);margin-top:22px;padding-top:18px;color:#a8b6af;font-size:14px}
-    @media (max-width: 980px){
-      .hero{grid-template-columns:1fr}
-      .hero h1{font-size:52px}
-      .grid-4{grid-template-columns:repeat(2,1fr)}
-      .grid-3{grid-template-columns:1fr}
-      .shop{grid-template-columns:1fr}
-      .stats{grid-template-columns:repeat(2,1fr)}
-    }
-    @media (max-width: 640px){
-      .hero h1{font-size:40px}
-      .grid-4{grid-template-columns:1fr}
-      .stats{grid-template-columns:1fr}
-      .links{display:none}
-      .cart{left:12px;right:12px;bottom:12px;width:auto;max-width:none}
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <div class="topbar">✦ Livraison gratuite dès 50€ • Retours 30 jours • Service client 24/7 ✦</div>
+  <div class="top-bar">✦ Livraison gratuite dès 50€ • Retours offerts 30 jours • Service client 24/7 ✦</div>
 
-  <header>
-    <div class="nav">
-      <div class="logo">SKS SHOPPING</div>
-      <nav class="links">
-        <a href="#accueil">Accueil</a>
-        <a href="#categories">Catégories</a>
-        <a href="#boutique">Boutique</a>
-        <a href="#apropos">À propos</a>
-      </nav>
-      <button class="btn btn-outline" onclick="document.getElementById('boutique').scrollIntoView({behavior:'smooth'})">Voir la boutique</button>
+  <header id="main-header">
+    <div class="logo">SKS SHOPPING</div>
+    <nav>
+      <ul>
+        <li><a href="#home" onclick="showPage('home')">Accueil</a></li>
+        <li><a href="#shop" onclick="showPage('shop')">Boutique</a></li>
+        <li><a href="#categories" onclick="showPage('categories')">Catégories</a></li>
+        <li><a href="#about" onclick="showPage('about')">À propos</a></li>
+        <li><a href="#contact" onclick="showPage('contact')">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="icons">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <div class="cart-wrapper" onclick="showPage('cart')" style="cursor:pointer">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <div class="badge" id="cart-badge">0</div>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="container hero" id="accueil">
-      <div>
-        <div class="badge">SKS SHOPPING • Premium marketplace</div>
-        <h1>L'élégance livrée à votre porte</h1>
-        <p>Une boutique multi-produits au design luxe vert émeraude, pensée pour vendre de tout : maison, gadgets, bien-être, bébé, bricolage et accessoires du quotidien.</p>
-        <div class="actions">
-          <button class="btn btn-gold" onclick="document.getElementById('boutique').scrollIntoView({behavior:'smooth'})">Découvrir la collection</button>
-          <button class="btn btn-green" onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">Explorer les univers</button>
-        </div>
-        <div class="stats">
-          <div class="stat"><strong>24/7</strong><span class="tiny">Support client</span></div>
-          <div class="stat"><strong>30 j</strong><span class="tiny">Retours simplifiés</span></div>
-          <div class="stat"><strong>50€+</strong><span class="tiny">Livraison offerte</span></div>
-          <div class="stat"><strong>PayPal</strong><span class="tiny">Paiement prêt à brancher</span></div>
+    <section id="home" class="page active">
+      <div class="hero">
+        <div class="hero-content">
+          <h1>L'élégance livrée à votre porte</h1>
+          <p>Premium Selection, Worldwide Delivery. Découvrez des pièces uniques soigneusement sélectionnées.</p>
+          <div class="hero-buttons">
+            <button class="btn-gold" onclick="showPage('shop')">Découvrir la collection</button>
+            <button class="btn-outline" onclick="showPage('shop')">Voir nouveautés</button>
+          </div>
         </div>
       </div>
-      <div class="hero-card">
-        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=80" alt="Collection premium SKS SHOPPING">
+      <div class="container">
+        <div class="trust-banner">
+          <div class="trust-item"><h4>Livraison Gratuite</h4><p>Dès 50€ d'achat</p></div>
+          <div class="trust-item"><h4>Paiement Sécurisé</h4><p>100% garanti</p></div>
+          <div class="trust-item"><h4>Retours Simples</h4><p>Sous 30 jours</p></div>
+          <div class="trust-item"><h4>Support 24/7</h4><p>Toujours à votre écoute</p></div>
+        </div>
+        <h2 class="section-title">Nos univers</h2>
+        <div class="product-grid" id="category-showcase"></div>
+        <h2 class="section-title">Sélection Vedette</h2>
+        <div class="product-grid" id="featured-products"></div>
       </div>
     </section>
 
-    <section class="container section" id="categories">
-      <h2>Nos univers</h2>
-      <p class="lead">Une offre large pour une boutique généraliste premium.</p>
-      <div class="grid-3">
-        <article class="cat">
-          <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80" alt="Maison et cuisine">
-          <div class="body">
-            <h3>Maison & cuisine</h3>
-            <p class="muted">Organisation, petit électroménager et objets pratiques.</p>
-          </div>
-        </article>
-        <article class="cat">
-          <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=900&q=80" alt="Tech et gadgets">
-          <div class="body">
-            <h3>Tech & gadgets</h3>
-            <p class="muted">Accessoires connectés et solutions intelligentes du quotidien.</p>
-          </div>
-        </article>
-        <article class="cat">
-          <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=900&q=80" alt="Bien-être et quotidien">
-          <div class="body">
-            <h3>Bien-être & quotidien</h3>
-            <p class="muted">Confort, relaxation et produits utiles à forte valeur perçue.</p>
-          </div>
-        </article>
+    <section id="categories" class="page">
+      <div class="container">
+        <h2 class="section-title">Toutes nos catégories</h2>
+        <div class="product-grid" id="categories-page-grid"></div>
       </div>
     </section>
 
-    <section class="container section" id="boutique">
-      <h2>Boutique</h2>
-      <p class="lead">Base simple, propre et facile à améliorer sur GitHub.</p>
-
-      <div class="shop">
-        <aside class="panel">
-          <h3>Filtres</h3>
-          <input id="search" type="text" placeholder="Rechercher un produit..." style="width:100%;margin-bottom:14px;">
-          <label><input type="checkbox" class="filter" value="all" checked> Tout voir</label>
-          <label><input type="checkbox" class="filter" value="maison"> Maison & cuisine</label>
-          <label><input type="checkbox" class="filter" value="tech"> Tech & gadgets</label>
-          <label><input type="checkbox" class="filter" value="bienetre"> Bien-être</label>
-          <label><input type="checkbox" class="filter" value="bebe"> Bébé</label>
-          <label><input type="checkbox" class="filter" value="bricolage"> Bricolage</label>
-          <div style="margin-top:16px">
-            <select id="sort" style="width:100%">
-              <option value="default">Tri recommandé</option>
-              <option value="price-asc">Prix croissant</option>
-              <option value="price-desc">Prix décroissant</option>
-              <option value="rating-desc">Mieux notés</option>
-            </select>
+    <section id="shop" class="page">
+      <div class="container">
+        <h2 class="section-title">Notre Boutique</h2>
+        <div class="shop-layout">
+          <aside class="sidebar">
+            <div class="filter-group">
+              <h4>Catégories</h4>
+              <label><input type="checkbox" value="all" checked /> Tout voir</label><br />
+              <label><input type="checkbox" value="maison-cuisine" /> Maison & cuisine</label><br />
+              <label><input type="checkbox" value="tech" /> Gadgets & tech</label><br />
+              <label><input type="checkbox" value="bebe" /> Bébé & enfants</label><br />
+              <label><input type="checkbox" value="bricolage" /> Bricolage & outils</label><br />
+              <label><input type="checkbox" value="bien-etre" /> Bien-être</label><br />
+              <label><input type="checkbox" value="other" /> Divers / autres</label><br />
+            </div>
+            <div class="filter-group">
+              <h4>Recherche</h4>
+              <input id="shop-search" type="text" placeholder="Rechercher..." style="width:100%;padding:10px;border:1px solid #d9e9e1;" />
+            </div>
+            <div class="filter-group">
+              <h4>Trier</h4>
+              <select id="shop-sort" style="width:100%;padding:10px;border:1px solid #d9e9e1;">
+                <option value="default">Sélection recommandée</option>
+                <option value="price-asc">Prix croissant</option>
+                <option value="price-desc">Prix décroissant</option>
+                <option value="rating-desc">Mieux notés</option>
+              </select>
+            </div>
+          </aside>
+          <div class="shop-content">
+            <div class="product-grid" id="all-products"></div>
           </div>
-        </aside>
-
-        <div>
-          <div class="toolbar">
-            <div class="tiny"><span id="count">0</span> produits affichés</div>
-            <button class="btn btn-outline" onclick="resetFilters()">Réinitialiser</button>
-          </div>
-          <div class="grid-4" id="products"></div>
         </div>
       </div>
     </section>
 
-    <section class="container section" id="apropos">
-      <h2>À propos de SKS SHOPPING</h2>
-      <p class="lead">Une base e-commerce premium, prête à évoluer.</p>
-      <div class="panel">
-        <p>SKS SHOPPING est une vitrine e-commerce pensée pour une stratégie de vente généraliste : proposer des produits utiles, tendance et à forte valeur perçue dans plusieurs univers. Cette version sert de base propre, modifiable et prête à évoluer vers un vrai backend PayPal, plus de produits et une structure GitHub plus complète.</p>
+    <section id="cart" class="page">
+      <div class="container">
+        <h2 class="section-title">Votre Panier</h2>
+        <div class="cart-layout">
+          <div class="cart-items">
+            <table class="cart-table">
+              <thead><tr><th>Produit</th><th>Prix</th><th>Quantité</th><th>Total</th><th></th></tr></thead>
+              <tbody id="cart-tbody"></tbody>
+            </table>
+          </div>
+          <div class="cart-summary">
+            <h3>Résumé de la commande</h3>
+            <hr style="margin:15px 0;border:none;border-top:1px solid #eee" />
+            <div class="summary-line"><span>Sous-total</span><span id="cart-subtotal">0,00 €</span></div>
+            <div class="summary-line"><span>Livraison</span><span>Gratuite</span></div>
+            <div class="summary-line summary-total"><span>Total</span><span id="cart-total">0,00 €</span></div>
+            <button class="btn-gold" style="width:100%;margin-top:20px" onclick="showPage('checkout')">Passer la commande</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="checkout" class="page">
+      <div class="container">
+        <h2 class="section-title">Validation de Commande</h2>
+        <div style="max-width:760px;margin:0 auto;background:var(--blanc);padding:40px;border-radius:10px;border:1px solid rgba(15,106,79,.08)">
+          <form id="checkout-form">
+            <h3 style="margin-bottom:20px">1. Adresse de Livraison</h3>
+            <input type="text" placeholder="Nom complet" required style="width:100%;padding:10px;margin-bottom:10px" />
+            <input type="email" placeholder="Email" required style="width:100%;padding:10px;margin-bottom:10px" />
+            <input type="text" placeholder="Adresse" required style="width:100%;padding:10px;margin-bottom:10px" />
+            <div style="display:flex;gap:10px;margin-bottom:10px">
+              <input type="text" placeholder="Code postal" required style="width:30%;padding:10px" />
+              <input type="text" placeholder="Ville" required style="width:70%;padding:10px" />
+            </div>
+            <input type="text" placeholder="Pays" required style="width:100%;padding:10px;margin-bottom:20px" />
+            <h3 style="margin:30px 0 20px">2. Paiement PayPal</h3>
+            <div id="paypal-button-container" style="min-height:48px;margin-bottom:16px;"></div>
+            <button type="submit" class="btn-gold" style="width:100%;margin-top:20px;">Valider la commande</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="page">
+      <div class="container" style="max-width:800px">
+        <h2 class="section-title">Notre Histoire</h2>
+        <p>SKS SHOPPING est né d'une passion pour le luxe accessible et le design épuré. Une sélection mondiale de produits utiles, tendance et premium dans plusieurs univers.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="page">
+      <div class="container" style="max-width:600px">
+        <h2 class="section-title">Nous Contacter</h2>
+        <form style="background:var(--blanc);padding:40px;border-radius:4px" onsubmit="event.preventDefault(); showToast('Message envoyé !'); this.reset();">
+          <input type="text" placeholder="Votre nom" required style="width:100%;padding:10px;margin-bottom:15px" />
+          <input type="email" placeholder="Votre email" required style="width:100%;padding:10px;margin-bottom:15px" />
+          <textarea placeholder="Votre message" rows="5" required style="width:100%;padding:10px;margin-bottom:15px;font-family:var(--font-text)"></textarea>
+          <button type="submit" class="btn-gold">Envoyer</button>
+        </form>
       </div>
     </section>
   </main>
 
-  <aside class="cart">
-    <h3>Panier <span class="tiny" id="cartCount">(0 article)</span></h3>
-    <div class="cart-list" id="cartList"></div>
-    <div class="cart-total">
-      <span>Total</span>
-      <span id="cartTotal">0 €</span>
-    </div>
-    <button class="btn btn-gold" style="width:100%">Paiement PayPal à connecter</button>
-    <p class="tiny" style="margin-top:10px">Le panier est sauvegardé dans le navigateur.</p>
-  </aside>
-
   <footer>
-    <div class="footer">
+    <div class="container">
       <div class="footer-grid">
-        <div>
-          <div class="logo" style="margin-bottom:10px">SKS SHOPPING</div>
-          <p class="tiny">L'élégance livrée à votre porte. Une base solide pour développer ta boutique sur GitHub.</p>
+        <div class="footer-col">
+          <div class="logo" style="margin-bottom:20px">SKS SHOPPING</div>
+          <p style="color:var(--gris);font-size:.9rem">L'élégance livrée à votre porte. Sélections premium multi-niches.</p>
         </div>
-        <div>
-          <h4>Navigation</h4>
-          <p><a href="#accueil">Accueil</a></p>
-          <p><a href="#categories">Catégories</a></p>
-          <p><a href="#boutique">Boutique</a></p>
+        <div class="footer-col">
+          <h4>Service Client</h4>
+          <ul><li><a href="#">FAQ</a></li><li><a href="#">Livraison & Retours</a></li><li><a href="#">CGV</a></li></ul>
         </div>
-        <div>
-          <h4>Paiement</h4>
-          <p class="tiny">PayPal</p>
-          <p class="tiny">Visa</p>
-          <p class="tiny">Mastercard</p>
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p style="color:var(--gris);font-size:.9rem;margin-bottom:15px">10% de réduction à l'inscription.</p>
+          <input type="email" class="newsletter-input" placeholder="Votre email" />
+          <button class="newsletter-btn">S'inscrire</button>
         </div>
       </div>
-      <div class="copy">© 2026 SKS SHOPPING - Tous droits réservés.</div>
+      <div class="footer-bottom">
+        <p>VISA • MASTERCARD • PAYPAL • APPLE PAY</p>
+        <p style="margin-top:10px">© 2026 SKS SHOPPING - Tous droits réservés.</p>
+      </div>
     </div>
   </footer>
 
-  <script>
-    const products = [
-      {id:1,name:"Mixeur Compact Premium",price:99,oldPrice:129,category:"maison",rating:4.7,image:"https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=900&q=80"},
-      {id:2,name:"Set Couteaux Chef",price:149,oldPrice:189,category:"maison",rating:4.8,image:"https://images.unsplash.com/photo-1593618998160-e34014e67546?w=900&q=80"},
-      {id:3,name:"Lampe Bureau LED Pro",price:79,oldPrice:99,category:"maison",rating:4.6,image:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900&q=80"},
-      {id:4,name:"Chargeur Sans Fil Duo",price:69,oldPrice:89,category:"tech",rating:4.7,image:"https://images.unsplash.com/photo-1587033411391-5d9e51cce126?w=900&q=80"},
-      {id:5,name:"Mini Projecteur Smart",price:229,oldPrice:299,category:"tech",rating:4.8,image:"https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=80"},
-      {id:6,name:"Caméra Sécurité Wi‑Fi",price:119,oldPrice:149,category:"tech",rating:4.6,image:"https://images.unsplash.com/photo-1558002038-1055907df827?w=900&q=80"},
-      {id:7,name:"Masseur Cervical Chauffant",price:119,oldPrice:149,category:"bienetre",rating:4.8,image:"https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=900&q=80"},
-      {id:8,name:"Diffuseur Huiles Zen",price:49,oldPrice:69,category:"bienetre",rating:4.7,image:"https://images.unsplash.com/photo-1602928321679-560bb453f190?w=900&q=80"},
-      {id:9,name:"Veilleuse Bébé Nuage",price:35,oldPrice:45,category:"bebe",rating:4.8,image:"https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=900&q=80"},
-      {id:10,name:"Sac Organisateur Poussette",price:59,oldPrice:79,category:"bebe",rating:4.6,image:"https://images.unsplash.com/photo-1519689680058-324335c77eba?w=900&q=80"},
-      {id:11,name:"Kit Outils Maison 48 pcs",price:129,oldPrice:169,category:"bricolage",rating:4.8,image:"https://images.unsplash.com/photo-1504148455328-c376907d081c?w=900&q=80"},
-      {id:12,name:"Perceuse Compacte Pro",price:179,oldPrice:229,category:"bricolage",rating:4.7,image:"https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80"}
-    ];
-
-    let cart = JSON.parse(localStorage.getItem('sks_cart') || '[]');
-
-    function money(v){ return `${v.toFixed(2).replace('.',',')} €`; }
-
-    function render(items){
-      document.getElementById('count').textContent = items.length;
-      document.getElementById('products').innerHTML = items.map(p => `
-        <article class="card">
-          <img src="${p.image}" alt="${p.name}">
-          <div class="body">
-            <div class="badge">${p.category}</div>
-            <h3>${p.name}</h3>
-            <p class="muted">Note ${p.rating}/5</p>
-            <div style="margin:10px 0 14px">
-              <span class="price">${money(p.price)}</span>
-              <span class="old">${money(p.oldPrice)}</span>
-            </div>
-            <div class="actions">
-              <button class="btn btn-gold" onclick="addToCart(${p.id})">Ajouter</button>
-            </div>
-          </div>
-        </article>
-      `).join('');
-    }
-
-    function renderCart(){
-      const list = document.getElementById('cartList');
-      const count = cart.reduce((a,b)=>a+b.qty,0);
-      const total = cart.reduce((a,b)=>a+b.price*b.qty,0);
-      document.getElementById('cartCount').textContent = `(${count} article${count>1?'s':''})`;
-      document.getElementById('cartTotal').textContent = money(total);
-      if(!cart.length){
-        list.innerHTML = `<p class="tiny">Ton panier est vide.</p>`;
-        return;
-      }
-      list.innerHTML = cart.map(item => `
-        <div class="cart-item">
-          <img src="${item.image}" alt="${item.name}">
-          <div>
-            <div style="font-weight:700">${item.name}</div>
-            <div class="tiny">${money(item.price)} × ${item.qty}</div>
-          </div>
-          <button class="btn btn-outline" onclick="removeFromCart(${item.id})">X</button>
-        </div>
-      `).join('');
-    }
-
-    function addToCart(id){
-      const p = products.find(x => x.id === id);
-      const existing = cart.find(x => x.id === id);
-      if(existing){ existing.qty += 1; }
-      else { cart.push({...p, qty:1}); }
-      localStorage.setItem('sks_cart', JSON.stringify(cart));
-      renderCart();
-    }
-
-    function removeFromCart(id){
-      cart = cart.filter(x => x.id !== id);
-      localStorage.setItem('sks_cart', JSON.stringify(cart));
-      renderCart();
-    }
-
-    function getActiveFilters(){
-      const checked = [...document.querySelectorAll('.filter:checked')].map(x => x.value);
-      return checked.includes('all') ? [] : checked;
-    }
-
-    function applyFilters(){
-      const q = document.getElementById('search').value.trim().toLowerCase();
-      const filters = getActiveFilters();
-      const sort = document.getElementById('sort').value;
-      let items = [...products];
-
-      if(filters.length){
-        items = items.filter(p => filters.includes(p.category));
-      }
-      if(q){
-        items = items.filter(p => p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q));
-      }
-      if(sort === 'price-asc') items.sort((a,b)=>a.price-b.price);
-      if(sort === 'price-desc') items.sort((a,b)=>b.price-a.price);
-      if(sort === 'rating-desc') items.sort((a,b)=>b.rating-a.rating);
-
-      render(items);
-    }
-
-    function resetFilters(){
-      document.getElementById('search').value = '';
-      document.querySelectorAll('.filter').forEach(x => x.checked = false);
-      document.querySelector('.filter[value="all"]').checked = true;
-      document.getElementById('sort').value = 'default';
-      render(products);
-    }
-
-    document.addEventListener('change', (e) => {
-      if(e.target.classList.contains('filter')){
-        if(e.target.value === 'all' && e.target.checked){
-          document.querySelectorAll('.filter').forEach(x => { if(x.value !== 'all') x.checked = false; });
-        } else if(e.target.value !== 'all' && e.target.checked){
-          document.querySelector('.filter[value="all"]').checked = false;
-        }
-        applyFilters();
-      }
-      if(e.target.id === 'sort') applyFilters();
-    });
-
-    document.getElementById('search').addEventListener('input', applyFilters);
-
-    render(products);
-    renderCart();
-  </script>
+  <div id="toast-container"></div>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
